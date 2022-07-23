@@ -1,4 +1,5 @@
-import React from 'react';
+import Item from './Item';
+import './style.scss'
 
 const Lista = () => {
 
@@ -18,17 +19,10 @@ const Lista = () => {
   ]
 
   return (
-    <aside>
+    <aside className='listaTarefas'>
       <h2>Estudos do dia</h2>
       <ul>
-        {
-          tarefas.map((tarefa, index) => (
-            <li key={index}>
-              <h3>{tarefa.tarefa}</h3>
-              <span>{tarefa.tempo}</span>
-            </li>
-          ))
-        }
+        {tarefas.map((tarefa, index) => (<Item {...tarefa} key={index} />))}
       </ul>
     </aside>
   );

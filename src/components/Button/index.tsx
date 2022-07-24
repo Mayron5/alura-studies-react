@@ -1,15 +1,19 @@
 import './style.scss'
 
 interface Props {
-  texto: string,
   tipo?: "button" | "submit" | "reset" | undefined,
-  onClick?: () => void
+  onClick?: () => void,
+  children?: React.ReactNode
 }
 
-const Botao = ({ texto, tipo = "button", onClick }: Props) => {
+const Botao = ({ tipo = "button", onClick, children }: Props) => {
   return (
-    <button className='botao' type={tipo} onClick={onClick}>
-      {texto}
+    <button
+      className='botao'
+      type={tipo}
+      onClick={onClick}
+    >
+      {children}
     </button>
   );
 };

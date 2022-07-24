@@ -4,7 +4,11 @@ import Botao from '../Button'
 import './style.scss'
 import { v4 as uuidv4 } from 'uuid';
 
-const Formulario = ({ setTarefas }: { setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>> }) => {
+interface Props {
+	setTarefas : React.Dispatch<React.SetStateAction<ITarefa[]>>
+}
+
+const Formulario = ({ setTarefas }: Props) => {
 
 	const [formulario, setFormulario] = useState({
 		tarefa: '',
@@ -53,7 +57,7 @@ const Formulario = ({ setTarefas }: { setTarefas: React.Dispatch<React.SetStateA
 					onChange={(event) => setFormulario({ ...formulario, tempo: event.target.value })}
 				/>
 			</div>
-			<Botao texto='Adicionar' tipo='submit' />
+			<Botao tipo='submit'>Adicionar</Botao>
 		</form>
 	);
 };

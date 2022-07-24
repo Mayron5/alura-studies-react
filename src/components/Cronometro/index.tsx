@@ -11,14 +11,14 @@ interface Props {
   finalizarTarefa: () => void
 };
 
-const Cronometro = ({selecionado, finalizarTarefa}: Props) => {
-  
+const Cronometro = ({ selecionado, finalizarTarefa }: Props) => {
+
   const [tempo, setTempo] = useState<number>();
 
   useEffect(() => {
     if (selecionado?.tempo) setTempo(tempoParaSegundos(selecionado.tempo))
   }, [selecionado]);
-  
+
   function regressiva(contador: number = 0) {
     setTimeout(() => {
       if (contador > 0) {
@@ -31,11 +31,13 @@ const Cronometro = ({selecionado, finalizarTarefa}: Props) => {
 
   return (
     <div className='cronometro'>
-        <p className='titulo'>Escolha um card e inicie o cronometro</p>
-        <div className='relogioWrapper'>
-            <Relogio tempo={tempo} />
-        </div>
-        <Botao texto='Começar' onClick={() => regressiva(tempo)} />
+      <p className='titulo'>Escolha um card e inicie o cronometro</p>
+      <div className='relogioWrapper'>
+        <Relogio tempo={tempo} />
+      </div>
+      <Botao onClick={() => regressiva(tempo)}>
+        Começar
+      </Botao>
     </div>
   );
 };
